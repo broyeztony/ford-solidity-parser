@@ -1,7 +1,7 @@
 contract Playground;
-do {
-    x -= 1;
-} while x > 10;
+if balance < amount {
+    revert();
+};
 
 /*
 let myAddress = address("0x1E3");
