@@ -1,0 +1,38 @@
+contract Playground;
+
+let myAddress = address("0x1E3");
+
+/*
+let myAddress = address("0x1E3");
+let yourAddress = address("0x1E4");
+let oneWei = wei(1);
+let oneEther = ether(1);
+let count = 0;
+
+// mappings
+let A = {};
+A[myAddress] = oneWei;
+A[yourAddress] = oneEther;
+
+let li = list(myAddress, yourAddress);
+
+def decrement {
+    count = count - 1;
+}
+
+def receive(amount) {
+    A[msg.sender] = amount;
+
+    emit("Received", {
+        address: myAddress,
+        amount: 1,
+        message: "some message"
+    });
+
+    revert();
+}
+
+def getCount {
+    return count;
+}
+*/

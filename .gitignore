@@ -1,0 +1,5 @@
+.idea/
+.git
+dist
+shell
+.DS_Store
