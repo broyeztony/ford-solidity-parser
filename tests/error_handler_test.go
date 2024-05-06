@@ -9,6 +9,8 @@ import (
 func TestErrorHandler(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	let z = square({ x: a }) -> {};
 	`
 
@@ -57,7 +59,8 @@ func TestErrorHandler(t *testing.T) {
       "type": "VariableStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

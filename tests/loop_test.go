@@ -9,6 +9,8 @@ import (
 func TestLoop(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	do {
 		x -= 1;
 	} while (x > 10);
@@ -56,7 +58,8 @@ func TestLoop(t *testing.T) {
       "type": "DoWhileStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

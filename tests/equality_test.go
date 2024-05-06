@@ -9,6 +9,8 @@ import (
 func TestEquality(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	x > 0 == true;
 	`
 
@@ -42,7 +44,8 @@ func TestEquality(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

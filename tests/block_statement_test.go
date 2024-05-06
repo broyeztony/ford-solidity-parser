@@ -9,6 +9,8 @@ import (
 func TestBlockStatement(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	{
 		42; 
 		"Hello";
@@ -41,7 +43,8 @@ func TestBlockStatement(t *testing.T) {
       "type": "BlockStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

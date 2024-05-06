@@ -9,6 +9,8 @@ import (
 func TestIfElse(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	if x {
 		x = 1;
 	}
@@ -71,7 +73,8 @@ func TestIfElse(t *testing.T) {
       "type": "IfStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

@@ -9,6 +9,7 @@ import (
 func TestLogicalExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x > 0 && y < 1;
 	`
 
@@ -50,7 +51,8 @@ func TestLogicalExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

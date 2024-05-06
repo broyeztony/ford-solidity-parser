@@ -10,6 +10,7 @@ import (
 func TestAssign1(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x = 42;
 	`
 
@@ -35,7 +36,8 @@ func TestAssign1(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 	assert.Equal(t, expected, string(got))
 }
@@ -43,6 +45,7 @@ func TestAssign1(t *testing.T) {
 func TestAssign2(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x = y = 42;
 	`
 
@@ -76,7 +79,8 @@ func TestAssign2(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 	assert.Equal(t, expected, string(got))
 }

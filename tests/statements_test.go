@@ -9,6 +9,7 @@ import (
 func TestStatementList(t *testing.T) {
 
 	program := `
+	contract Playground;
 	print("hello Ford!");
 	42;
 	`
@@ -43,7 +44,8 @@ func TestStatementList(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

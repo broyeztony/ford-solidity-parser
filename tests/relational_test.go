@@ -9,6 +9,7 @@ import (
 func TestRelationalExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x > 0;
 	`
 
@@ -34,7 +35,8 @@ func TestRelationalExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

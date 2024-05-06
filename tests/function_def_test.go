@@ -9,6 +9,8 @@ import (
 func TestFunctionDef(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	def square {
     	return _.x * _.x;
 	}
@@ -64,7 +66,8 @@ func TestFunctionDef(t *testing.T) {
       "type": "FunctionDeclaration"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

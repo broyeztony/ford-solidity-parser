@@ -9,6 +9,7 @@ import (
 func TestVariableDeclaration(t *testing.T) {
 
 	program := `
+	contract Playground;
 	let x;
 	`
 
@@ -32,7 +33,8 @@ func TestVariableDeclaration(t *testing.T) {
       "type": "VariableStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -41,6 +43,7 @@ func TestVariableDeclaration(t *testing.T) {
 func TestVariableAssignment(t *testing.T) {
 
 	program := `
+	contract Playground;
 	let x = 42;
 	`
 
@@ -67,7 +70,8 @@ func TestVariableAssignment(t *testing.T) {
       "type": "VariableStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

@@ -9,6 +9,7 @@ import (
 func TestWhileStatement(t *testing.T) {
 
 	program := `
+	contract Playground;
 	while x > 10 {
     	x -= 1;
 	}
@@ -17,7 +18,7 @@ func TestWhileStatement(t *testing.T) {
 	p := parser.NewParser(program)
 	ast := p.Parse()
 	actual := parser.Encode(ast)
-	
+
 	expected := `{
   "body": [
     {
@@ -56,7 +57,8 @@ func TestWhileStatement(t *testing.T) {
       "type": "WhileStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -65,6 +67,7 @@ func TestWhileStatement(t *testing.T) {
 func TestDoWhileStatement(t *testing.T) {
 
 	program := `
+	contract Playground;
 	do {
     	x -= 1;
 	} while x > 10;
@@ -112,7 +115,8 @@ func TestDoWhileStatement(t *testing.T) {
       "type": "DoWhileStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

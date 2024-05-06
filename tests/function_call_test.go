@@ -9,6 +9,8 @@ import (
 func TestFunctionCall(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	foo(x)();
 	`
 
@@ -39,7 +41,8 @@ func TestFunctionCall(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -48,13 +51,15 @@ func TestFunctionCall(t *testing.T) {
 func TestFunctionCall2(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	console.log(x, y);
 	`
 
 	p := parser.NewParser(program)
 	ast := p.Parse()
 	actual := parser.Encode(ast)
-	
+
 	expected := `{
   "body": [
     {
@@ -86,7 +91,8 @@ func TestFunctionCall2(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

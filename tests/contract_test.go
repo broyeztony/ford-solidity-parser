@@ -6,12 +6,10 @@ import (
 	"testing"
 )
 
-func TestEmptyStatement(t *testing.T) {
+func TestContract(t *testing.T) {
 
 	program := `
 	contract Playground;
-
-	;
 	`
 
 	p := parser.NewParser(program)
@@ -19,11 +17,7 @@ func TestEmptyStatement(t *testing.T) {
 	actual := parser.Encode(ast)
 
 	expected := `{
-  "body": [
-    {
-      "type": "EmptyStatement"
-    }
-  ],
+  "body": null,
   "name": "Playground",
   "type": "Contract"
 }`

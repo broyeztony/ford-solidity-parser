@@ -9,6 +9,7 @@ import (
 func TestSimpleMemberExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x.y;
 	`
 
@@ -34,7 +35,8 @@ func TestSimpleMemberExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -43,6 +45,7 @@ func TestSimpleMemberExpression(t *testing.T) {
 func TestMemberExpressionAssignment(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x.y = 1;
 	`
 
@@ -76,7 +79,8 @@ func TestMemberExpressionAssignment(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -85,6 +89,7 @@ func TestMemberExpressionAssignment(t *testing.T) {
 func TestComputedExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	x[0] = 1;
 	`
 
@@ -118,7 +123,8 @@ func TestComputedExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -127,6 +133,7 @@ func TestComputedExpression(t *testing.T) {
 func TestComputedExpression2(t *testing.T) {
 
 	program := `
+	contract Playground;
 	a.b.c['d'];
 	`
 
@@ -168,7 +175,8 @@ func TestComputedExpression2(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

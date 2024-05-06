@@ -9,6 +9,7 @@ import (
 func TestUnaryExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	-x;
 	!x;
 	`
@@ -42,7 +43,8 @@ func TestUnaryExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

@@ -9,6 +9,8 @@ import (
 func TestFor(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	for (let i = 0 ; i < 10 ; i += 1) {
     	x += i;
 	}
@@ -84,7 +86,8 @@ func TestFor(t *testing.T) {
       }
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

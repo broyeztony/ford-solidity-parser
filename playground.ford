@@ -1,6 +1,7 @@
 contract Playground;
-
-let myAddress = address("0x1E3");
+do {
+    x -= 1;
+} while x > 10;
 
 /*
 let myAddress = address("0x1E3");

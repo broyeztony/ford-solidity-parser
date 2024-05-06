@@ -9,6 +9,7 @@ import (
 func TestNumericLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
 	42;
 	`
 
@@ -26,7 +27,8 @@ func TestNumericLiteral(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -35,6 +37,7 @@ func TestNumericLiteral(t *testing.T) {
 func TestFloatLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
 	42.34;
 	`
 
@@ -52,7 +55,8 @@ func TestFloatLiteral(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -61,6 +65,7 @@ func TestFloatLiteral(t *testing.T) {
 func TestStringLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
 	"42";
 	`
 
@@ -78,7 +83,8 @@ func TestStringLiteral(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -87,13 +93,14 @@ func TestStringLiteral(t *testing.T) {
 func TestSingleQuoteStringLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
 	'"42"';
 	`
 
 	p := parser.NewParser(program)
 	ast := p.Parse()
 	actual := parser.Encode(ast)
-	
+
 	expected := `{
   "body": [
     {
@@ -104,7 +111,8 @@ func TestSingleQuoteStringLiteral(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -113,6 +121,7 @@ func TestSingleQuoteStringLiteral(t *testing.T) {
 func TestBooleanLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
 	true;
 	`
 
@@ -130,7 +139,8 @@ func TestBooleanLiteral(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -139,6 +149,8 @@ func TestBooleanLiteral(t *testing.T) {
 func TestObjectLiteral(t *testing.T) {
 
 	program := `
+	contract Playground;
+
 	let b = { x: a };
 	`
 
@@ -173,7 +185,8 @@ func TestObjectLiteral(t *testing.T) {
       "type": "VariableStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)

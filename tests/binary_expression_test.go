@@ -9,6 +9,7 @@ import (
 func TestSimpleBinaryExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	2 + 2;
 	`
 
@@ -33,7 +34,8 @@ func TestSimpleBinaryExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -42,6 +44,7 @@ func TestSimpleBinaryExpression(t *testing.T) {
 func TestMulBinaryExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	2 + 2 * 2;
 	`
 
@@ -75,7 +78,8 @@ func TestMulBinaryExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
@@ -84,6 +88,7 @@ func TestMulBinaryExpression(t *testing.T) {
 func TestParenthesizedBinaryExpression(t *testing.T) {
 
 	program := `
+	contract Playground;
 	2 * (3 + 6);
 	`
 
@@ -117,7 +122,8 @@ func TestParenthesizedBinaryExpression(t *testing.T) {
       "type": "ExpressionStatement"
     }
   ],
-  "type": "Program"
+  "name": "Playground",
+  "type": "Contract"
 }`
 
 	assert.Equal(t, expected, actual)
