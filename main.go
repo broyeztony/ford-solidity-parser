@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	parser "ford-lang-parser/parser"
+	parser "ford-solidity-parser/parser"
 	"io/ioutil"
 )
 

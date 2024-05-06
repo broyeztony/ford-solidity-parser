@@ -1,7 +1,7 @@
 contract Playground;
-if balance < amount {
-    revert();
-};
+let map = {};
+map[myAddress] = oneWei;
+map[yourAddress] = oneEther;
 
 /*
 let myAddress = address("0x1E3");
@@ -15,7 +15,7 @@ let A = {};
 A[myAddress] = oneWei;
 A[yourAddress] = oneEther;
 
-let li = list(myAddress, yourAddress);
+let myList = list(myAddress, yourAddress);
 
 def decrement {
     count = count - 1;

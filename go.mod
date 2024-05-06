@@ -1,4 +1,4 @@
-module ford-lang-parser
+module ford-solidity-parser
 
 go 1.21
 
