@@ -1,7 +1,31 @@
-contract Playground;
+contract PrimitiveTypes;
+
+let aString = "Hello World!"; // string
+let aBool = true; // boolean
+let aUint8 = u8(255); // uint8
+let anAddress = address("0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c"); // address
+
+/*
+contract HelloWorld;
+let greet = "Hello World!";
+*/
+
+/*
+contract Counter;
+let count; // uint256
+// Function to get the current count
+def get {
+    return 2 * count;
+}
+*/
+
+/*
+let myAddress = address("0x1E3");
+let yourAddress = address("0x1E4");
 let map = {};
-map[myAddress] = oneWei;
-map[yourAddress] = oneEther;
+map[myAddress] = 1;
+map[yourAddress] = 1e18;
+*/
 
 /*
 let myAddress = address("0x1E3");

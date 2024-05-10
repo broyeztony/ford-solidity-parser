@@ -12,13 +12,17 @@
  '----------------'  '----------------'  '----------------'
 ```
 
+This repository is a fork of https://github.com/broyeztony/ford-lang-parser to include EVM semantics
+as an attempt to provide an alternative to https://soliditylang.org/ and https://docs.vyperlang.org/en/stable/
+
 # Run the unit-tests
 ```shell
 ❯ go test ./tests
 ```
 
 # Print the AST for a program
-Modify the program in the file `playground.ford` and then 
+Take a look at the example smart contract programs defined in `playground.ford`
+Comment/Uncomment accordingly and then 
 ```shell
 ❯ go run main.go
 ```
@@ -26,156 +30,38 @@ from your terminal
 
 # Example
 ```
-# let a = "not a number";
-# def square {
-#     return _.x * _.x;
-# }
-# let result = square({ x: a }) -> {
-#     recover 0;
-# };
-# print(result); // output: 0
+contract HelloWorld;
+let greet = "Hello World!";
 
 ❯ ./run
 ```
 
-```ford
-  .----------------.  .----------------.  .----------------. 
-| .--------------. || .--------------. || .--------------. |
-| |              | || |     ___      | || |     __       | |
-| |              | || |    |_  |     | || |    \_ `.     | |
-| |              | || |      | |     | || |      | |     | |
-| |              | || |      | |     | || |       > >    | |
-| |              | || |     _| |     | || |     _| |     | |
-| |   _______    | || |    |___|     | || |    /__.'     | |
-| |  |_______|   | || |              | || |              | |
-| '--------------' || '--------------' || '--------------' |
- '----------------'  '----------------'  '----------------' 
+will produce the below AST
 
-{
-  "type": "Program",
+```ford
+  {
   "body": [
     {
-      "type": "VariableStatement",
       "declarations": [
         {
-          "type": "VariableDeclaration",
           "id": {
-            "type": "Identifier",
-            "name": "a"
+            "name": "greet",
+            "type": "Identifier"
           },
           "initializer": {
             "type": "StringLiteral",
-            "value": "not a number"
-          }
-        }
-      ]
-    },
-    {
-      "type": "FunctionDeclaration",
-      "name": {
-        "type": "Identifier",
-        "name": "square"
-      },
-      "body": {
-        "type": "BlockStatement",
-        "body": [
-          {
-            "type": "ReturnStatement",
-            "argument": {
-              "type": "BinaryExpression",
-              "operator": "*",
-              "left": {
-                "type": "MemberExpression",
-                "computed": false,
-                "object": {
-                  "type": "Identifier",
-                  "name": "_"
-                },
-                "property": {
-                  "type": "Identifier",
-                  "name": "x"
-                }
-              },
-              "right": {
-                "type": "MemberExpression",
-                "computed": false,
-                "object": {
-                  "type": "Identifier",
-                  "name": "_"
-                },
-                "property": {
-                  "type": "Identifier",
-                  "name": "x"
-                }
-              }
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "VariableStatement",
-      "declarations": [
-        {
-          "type": "VariableDeclaration",
-          "id": {
-            "type": "Identifier",
-            "name": "result"
+            "value": "Hello World!"
           },
-          "initializer": {
-            "type": "CallExpression",
-            "callee": {
-              "type": "Identifier",
-              "name": "square"
-            },
-            "arguments": [
-              {
-                "type": "ObjectLiteral",
-                "values": [
-                  {
-                    "name": "x",
-                    "value": {
-                      "type": "Identifier",
-                      "name": "a"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "errorHandler": {
-            "type": "BlockStatement",
-            "body": [
-              {
-                "type": "RecoverStatement",
-                "argument": {
-                  "type": "NumericLiteral",
-                  "value": 0
-                }
-              }
-            ]
-          }
+          "type": "VariableDeclaration"
         }
-      ]
-    },
-    {
-      "type": "ExpressionStatement",
-      "expression": {
-        "type": "CallExpression",
-        "callee": {
-          "type": "Identifier",
-          "name": "print"
-        },
-        "arguments": [
-          {
-            "type": "Identifier",
-            "name": "result"
-          }
-        ]
-      }
+      ],
+      "type": "VariableStatement"
     }
-  ]
+  ],
+  "name": "HelloWorld",
+  "type": "Contract"
 }
+
 ```
 
 # Semantics

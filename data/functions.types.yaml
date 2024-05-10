@@ -1,0 +1,14 @@
+state:
+    - name: x
+      type: u8
+
+defs:
+    - name: addToX
+      parameters:
+        y: u8
+      returnType: u8
+      visibility:
+          - public
+          - view
+
+events: {}

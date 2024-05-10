@@ -1,0 +1,12 @@
+state:
+  - name: aString
+    type: string
+  - name: aBool
+    type: boolean
+  - name: aUint8
+    type: u8
+  - name: anAddress
+    type: address
+
+defs: {}
+events: {}

@@ -1,0 +1,6 @@
+contract PrimitiveTypes;
+
+let aString = ""; // string
+let aBool = true; // boolean
+let aUint8 = u8(255); // uint8
+let anAddress = address("0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c"); // address

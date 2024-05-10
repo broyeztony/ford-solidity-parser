@@ -8,7 +8,8 @@ import (
 
 func main() {
 
-	data, err := ioutil.ReadFile("playground.ford")
+	filePath := "data/functions.ford"
+	data, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
 		fmt.Println("Error reading file:", err)
