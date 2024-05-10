@@ -65,7 +65,7 @@ will produce the following AST
 
 ```
 
-# Ford Semantics that can be used as part of a smart contract definition
+# Ford Semantics can be used as part of a smart contract definition
 ```ford
 // variable declaration
 let x = "not a number";
