@@ -81,7 +81,7 @@ let x = "hello"; // a string
 let y = u8(0); // a uint8 
 let z = address("0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"); // an ethereum address
 
-// public view function definition with explicit arguments declaration
+// public function definition with explicit arguments declaration
 def increment (b) {
     while y < 10 {
         y = y + b;
