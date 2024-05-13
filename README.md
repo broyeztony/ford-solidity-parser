@@ -122,3 +122,139 @@ def someOtherFunction {
 
 someOtherFunction(1, 2);
 ```
+
+# Examples
+
+### Primitive types
+```ford
+contract PrimitiveTypes;
+
+let aString = ""; // string
+let aBool = true; // boolean
+let aUint8 = u8(255); // uint8
+let anAddress = address("0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c"); // address
+```
+
+```yaml
+state:
+  - name: aString
+    type: string
+  - name: aBool
+    type: boolean
+  - name: aUint8
+    type: u8
+  - name: anAddress
+    type: address
+
+defs: {}
+events: {}
+```
+
+### Functions
+```ford
+contract View;
+
+let x = u8(1);
+
+// by default, all defs are `public`
+// `y` is of type `u8` (uint8)
+// `addToX` return type is `u8` (uint8)
+def addToX (y) {
+    return x + y;
+}
+```
+
+```yaml
+state:
+  - name: x
+    type: u8
+
+defs:
+  - name: addToX
+    parameters:
+      y: u8
+    returnType: u8
+    visibility:
+      - public
+    stateMutability:
+      - view
+
+events: {}
+```
+
+### Events
+```ford
+contract Events;
+
+myAddress = address("0xfe3091F63A0b0b1cf81ff53102434aa287aC5289");
+
+def receive(amount) {
+
+    let sent = send(myAddress, amount);
+    if sent {
+        emit("Received", { address: msg.sender, amount: amount, message: "Received some ether" });
+    } else {
+        emit("TransferError", { address: msg.sender, amount: amount, message: "Transfer failure" });
+    }
+}
+```
+
+```yaml
+state:
+  - name: myAddress
+    type: address
+    payable: true
+
+defs:
+  - name: receive
+    parameters:
+      amount: u256
+    returnType: null
+    visibility:
+      - public
+    payable: true
+
+events:
+  Received:
+    address: address
+    amount: u256
+    message: string
+  TransferError:
+    address: address
+    amount: u256
+    message: string
+```
+
+### Mappings
+```ford
+contract Mappings;
+
+// string => bool
+let m1 = mapping();
+// string => (string => address)
+let m2 = mapping();
+
+def constructor {
+
+    m1["abc"] = true;
+    m1["def"] = false;
+
+    m2["X"]["Y"] = address("0xfe3091F63A0b0b1cf81ff53102434aa287aC5289");
+}
+```
+
+```yaml
+state:
+  - name: m1
+    type: mapping(string => bool)
+  - name: m2
+    type: mapping(string => mapping(string => address))
+
+defs:
+  - name: constructor
+    returnType: null
+    visibility:
+      - public
+
+events: {}
+```
