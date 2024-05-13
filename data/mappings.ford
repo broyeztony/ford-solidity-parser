@@ -1,0 +1,14 @@
+contract Mappings;
+
+// string => bool
+let m1 = mapping();
+// string => (string => address)
+let m2 = mapping();
+
+def constructor {
+
+    m1["abc"] = true;
+    m1["def"] = false;
+
+    m2["X"]["Y"] = address("0xfe3091F63A0b0b1cf81ff53102434aa287aC5289");
+}

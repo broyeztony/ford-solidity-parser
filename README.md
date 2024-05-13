@@ -65,25 +65,27 @@ will produce the following AST
 
 ```
 
-# Ford Semantics can be used as part of a smart contract definition
-Since Ford is not a statically typed language, we resort to some special functions
-in order to specify the types of variables
+# Ford Semantics
+Ford is a dynamically-typed language and it does not support Object-oriented programming.
+In order to deal with variable's type, we resort to a few `reserved` functions like `address("0x...")` or `u8(255)`
+Every `.ford` contract must have a companion metadata file where state variable's types are declared explicitly.
+This is also where functions' parameters and return types, visibility, state mutability are declared. 
 
 ```ford
 // contract's name
 contract Semantics;
 
 // state variable declaration
-let x = "not a number"; // a string
-let y = u256(1000); // a uint256 
+let x = "hello"; // a string
+let y = u8(0); // a uint8 
 let z = address("0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"); // an ethereum address
 
 // public view function definition with explicit arguments declaration
-def increment (x) {
-    while x < 10 {
-        x = x + 1;
+def increment (b) {
+    while y < 10 {
+        y = y + b;
     }
-    return x;
+    return y;
 }
 
 // functions can omit parenthesis and argument's list even when they accept parameters.
@@ -92,7 +94,7 @@ def square {
     // describe is a native function that outputs a map of key-value pairs of the caller arguments
     describe(_);
 
-    return _.x * _.x;
+    return _.y * _.y;
 }
 
 // ObjectLiteral assignment
@@ -101,30 +103,15 @@ let A = { x: u8(1), y: u8(2), b: true, s: "hello" };
 // Empty BlockStatement
 {}
 
-// variable initialization, with optional error handler following the error handler operator `->`
-let result = square({ x }) -> {
-    // This part here is an optional error handler.
-    // It receives the `_` object which is an error object:
-    // In this case ```{ code: INCOMPATIBLE_TYPE_ERROR, reason: "Incompatible type. Expected: 'Number', Found: 'String'."}```
-    // The error handler let us return a 'recovery' value using the `recover` keyword. 
-    // Here, 0 will be assigned to the variable named `result`.
-    // The error handler is not required to return a value.
-    recover u8(0);
-};
+// variable initialization
+let result = square({ y });
 
 // 'if' statements, with 'else' alternative block
-if result > 1 {
-
-}
-else {
-
-}
+if result > 1 { }
+else {}
 
 // calling a function, with error handler
-result  = increment(0) -> {
-    // describe the error object
-    describe(_);
-};
+result  = increment(0);
 
 // Function's arguments can also be passed as a list like in the example below.
 // In that case, they need to be accessed by index from the `_` placeholder implicit object.

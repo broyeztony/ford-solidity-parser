@@ -1,0 +1,13 @@
+state:
+    - name: m1
+      type: mapping(string => bool)
+    - name: m2
+      type: mapping(string => mapping(string => address))
+
+defs:
+    - name: constructor
+      returnType: null
+      visibility:
+        - public
+
+events: {}
