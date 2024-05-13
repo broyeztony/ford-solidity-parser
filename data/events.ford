@@ -4,7 +4,7 @@ myAddress = address("0xfe3091F63A0b0b1cf81ff53102434aa287aC5289");
 
 def receive(amount) {
 
-    transfer(myAddress, amount);
+    send(myAddress, amount);
 
     emit("Received", {
         address: myAddress,
