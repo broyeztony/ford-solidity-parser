@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	filePath := "data/functions.ford"
+	filePath := "data/events.ford"
 	data, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
