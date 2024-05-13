@@ -5,6 +5,6 @@ let x = u8(1);
 // by default, all defs are `public`
 // `y` is of type `u8` (uint8)
 // `addToX` return type is `u8` (uint8)
-def addToX(y) {
+def addToX (y) {
     return x + y;
 }

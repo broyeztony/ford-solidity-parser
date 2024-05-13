@@ -66,11 +66,19 @@ will produce the following AST
 ```
 
 # Ford Semantics can be used as part of a smart contract definition
-```ford
-// variable declaration
-let x = "not a number";
+Since Ford is not a statically typed language, we resort to some special functions
+in order to specify the types of variables
 
-// function definition with explicit arguments declaration
+```ford
+// contract's name
+contract Semantics;
+
+// state variable declaration
+let x = "not a number"; // a string
+let y = u256(1000); // a uint256 
+let z = address("0x95222290DD7278Aa3Ddd389Cc1E1d165CC4BAfe5"); // an ethereum address
+
+// public view function definition with explicit arguments declaration
 def increment (x) {
     while x < 10 {
         x = x + 1;
@@ -88,7 +96,7 @@ def square {
 }
 
 // ObjectLiteral assignment
-let A = { x: 1, y: 2, b: true, s: "hello" };
+let A = { x: u8(1), y: u8(2), b: true, s: "hello" };
 
 // Empty BlockStatement
 {}
@@ -101,7 +109,7 @@ let result = square({ x }) -> {
     // The error handler let us return a 'recovery' value using the `recover` keyword. 
     // Here, 0 will be assigned to the variable named `result`.
     // The error handler is not required to return a value.
-    recover 0;
+    recover u8(0);
 };
 
 // 'if' statements, with 'else' alternative block
