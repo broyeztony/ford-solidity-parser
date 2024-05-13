@@ -67,7 +67,8 @@ will produce the following AST
 
 # Ford Semantics
 Ford is a dynamically-typed language and it does not support Object-oriented programming.
-In order to deal with variable's type, we resort to a few `reserved` functions like `address("0x...")` or `u8(255)`
+In order to deal with variable's type, we resort to a few `reserved` functions like `address("0x...")` or `u8(255)`.
+
 Every `.ford` contract must have a companion metadata file where state variable's types are declared explicitly.
 This is also where functions' parameters and return types, visibility, state mutability are declared. 
 
