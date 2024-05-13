@@ -1,0 +1,19 @@
+state:
+    - name: myAddress
+      type: address
+      payable: true
+
+defs:
+    - name: receive
+      parameters:
+        amount: u256
+      returnType: null
+      visibility:
+          - public
+      payable: true
+
+events:
+  Received:
+    address: address
+    amount: u256
+    message: string
