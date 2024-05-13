@@ -17,3 +17,7 @@ events:
     address: address
     amount: u256
     message: string
+  TransferError:
+    address: address
+    amount: u256
+    message: string

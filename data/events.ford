@@ -4,11 +4,18 @@ myAddress = address("0xfe3091F63A0b0b1cf81ff53102434aa287aC5289");
 
 def receive(amount) {
 
-    send(myAddress, amount);
+    let sent = send(myAddress, amount);
 
-    emit("Received", {
-        address: myAddress,
-        amount: amount,
-        message: "Received some ether"
-    });
+    let eventData = {
+        address: msg.sender,
+        amount: amount
+    };
+
+    if sent {
+        eventData.message = "Received some ether.";
+        emit("Received", eventData);
+    } else {
+        eventData.message = "Transfer failure.";
+        emit("TransferError", eventData);
+    }
 }
