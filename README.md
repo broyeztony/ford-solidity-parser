@@ -98,21 +98,24 @@ def square {
     return _.y * _.y;
 }
 
-// ObjectLiteral assignment
-let A = { x: u8(1), y: u8(2), b: true, s: "hello" };
+def demo() {
+    // ObjectLiteral assignment
+    let A = { x: u8(1), y: u8(2), b: true, s: "hello" };
+    
+    // Empty BlockStatement
+    {}
+    
+    // variable initialization
+    let result = square({ y });
+    
+    // 'if' statements, with 'else' alternative block
+    if result > 1 { }
+    else {}
 
-// Empty BlockStatement
-{}
-
-// variable initialization
-let result = square({ y });
-
-// 'if' statements, with 'else' alternative block
-if result > 1 { }
-else {}
-
-// calling a function, with error handler
-result  = increment(0);
+    // calling functions    
+    result  = increment(0);
+    someOtherFunction(1, 2);    
+}
 
 // Function's arguments can also be passed as a list like in the example below.
 // In that case, they need to be accessed by index from the `_` placeholder implicit object.
@@ -120,8 +123,6 @@ def someOtherFunction {
     print(_[0]);
     print(_[1]);
 }
-
-someOtherFunction(1, 2);
 ```
 
 # Examples
