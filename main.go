@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	filePath := "data/events.ford"
+	filePath := "playground.ford"
 	data, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
