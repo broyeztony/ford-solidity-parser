@@ -260,3 +260,42 @@ defs:
 
 events: {}
 ```
+
+### Lists
+```ford
+contract Lists;
+
+def doList {
+
+	let myList = listU8(1, 1, 2, 3, 5);
+
+    let itemAtIndex3 = getItem(myList, 4); // i.e `5`
+	append(myList, u8(8)); // add u8(8) at the end of the list
+	remove(myList, 0); // removes u8(1) at the beginning of the list
+	length(myList); // returns the size of the list, i.e `5`
+
+	/* introduce utility functions
+	let doesListContainElement = false;
+	let needle = u8(4);
+    for (i = 0; i < length(myList); i = i + 1) {
+        if getItem(myList, i) == needle {
+            doesListContainElement = true;
+            break;
+        }
+    }
+	*/
+	let found = contains(myList, u8(2)); // false
+}
+```
+
+```yaml
+state: {}
+
+defs:
+  - name: doList
+    returnType: null
+    visibility:
+      - private
+
+events: {}
+```

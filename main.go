@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	filePath := "playground.ford"
+	filePath := "data/lists.ford"
 	data, err := ioutil.ReadFile(filePath)
 
 	if err != nil {

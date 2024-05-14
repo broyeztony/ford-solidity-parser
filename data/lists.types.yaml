@@ -1,0 +1,9 @@
+state: {}
+
+defs:
+    - name: doList
+      returnType: null
+      visibility:
+        - private
+
+events: {}
