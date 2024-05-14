@@ -9,6 +9,7 @@ defs:
       returnType: u8
       visibility:
           - public
+      stateMutability:
           - view
 
 events: {}

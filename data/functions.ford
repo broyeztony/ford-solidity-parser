@@ -1,4 +1,4 @@
-contract ViewAndPure;
+contract View;
 
 let x = u8(1);
 
